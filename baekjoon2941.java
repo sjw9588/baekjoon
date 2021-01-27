@@ -10,44 +10,48 @@ public class baekjoon2941 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	
 		String S = br.readLine();
-		String arr[] = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
-		
 		int cnt=0;
+		
 		for(int i=0; i< S.length(); i++) {
 			char k = S.charAt(i);
-			cnt++;
 			switch(k) {
 			case 'c' :
 				if(((S.charAt(i+1)=='=')||(S.charAt(i+1)=='-'))&& i+1<S.length()) {
-					cnt++;
+					i++;
 				}
-				else cnt--;
 				break;
 			case 'd' :
 				if(S.charAt(i+1)=='z'){
 					if(S.charAt(i+2)=='=' && i+2<S.length()) {
-						cnt++;
+						i=i+2;
 					}
-					else cnt--;
 				}
 				else if((S.charAt(i+1)=='-')&& i+1<S.length()) {
-					cnt++;
+					i++;
 				}
-				else cnt--;
 				break;
-			case 'j':
-				if(((S.charAt(i-1)=='l') || (S.charAt(i-1)=='n')) && i-1>=0) {
-					cnt++;
+			case 'l' :
+				if((S.charAt(i+1)=='j') && (i+1<S.length())) {
+					i++;
 				}
-				else cnt--;
 				break;
-			case '=':
-				if(((S.charAt(i-1)=='s') || (S.charAt(i-1)=='z')) && i-1>=0) {
-					cnt++;
+			case 'n' :
+				if((S.charAt(i+1)=='j') && (i+1<S.length())) {
+					i++;
 				}
-				else cnt--;
+				break;
+			case 's' :
+				if((S.charAt(i+1)=='=') && (i+1<S.length())) {
+					i++;
+				}
+				break;
+			case 'z' :
+				if((S.charAt(i+1)=='=') && (i+1<S.length())) {
+					i++;
+				}
 				break;
 			}
+			cnt++;
 		}
 		System.out.print(cnt);
 	}
