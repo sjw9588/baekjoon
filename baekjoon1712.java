@@ -20,5 +20,6 @@ public class baekjoon1712 {
 		}
 		else plus = fix/(price-one)+1;
 		System.out.print(plus);
+		br.close(); 
 	}
 }
